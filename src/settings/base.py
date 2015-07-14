@@ -64,7 +64,7 @@ ROOT_URLCONF = 'urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, '../templates').replace('\\','/')],
+        'DIRS': [os.path.join(BASE_DIR, '../templates').replace('\\', '/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,6 +73,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'django.template.context_processors.static',
             ],
         },
     },
@@ -101,7 +102,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -117,9 +118,12 @@ DATETIME_FORMAT = '{0} {1}'.format(DATE_FORMAT, TIME_FORMAT)
 # https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "../static").replace('\\', '/'),
-)
+# STATIC_ROOT field for running 'manage.py collectstatic' command
+STATIC_ROOT = os.path.join(BASE_DIR, "../static").replace('\\', '/')
+# uncomment STATICFILES_DIRS after collectstatic
+#STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, "../static").replace('\\', '/'),
+#)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "../media").replace('\\', '/')
