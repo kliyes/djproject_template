@@ -1,0 +1,9 @@
+src/settings/__init__.py
+src/settings/local.py
+.settings/
+.project
+.pydevproject
+*.pyc
+media/
+run/
+venv/
